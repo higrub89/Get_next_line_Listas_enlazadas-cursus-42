@@ -6,11 +6,28 @@
 /*   By: rhiguita <rhiguita@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 13:20:42 by rhiguita          #+#    #+#             */
-/*   Updated: 2024/07/28 13:26:12 by rhiguita         ###   ########.fr       */
+/*   Updated: 2024/09/01 12:34:15 by rhiguita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef	GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
-# include <fctnl.h>
+# include <fcntl.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 2
+# endif
+
+char	*ft_trim(char *s);
+char	*ft_new_line(char *s);
+char	*get_next_line(int fd);
+char	*ft_strjoin(char *s1, char *s2);
+size_t	ft_strlen(char *s);
+void	*ft_memcpy(void *dest, const void *src, size_t n);
+char	*ft_strchr(char *s, char c);
+
+#endif
