@@ -64,6 +64,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	ft_memcpy(s3, s1, len_s1);
 	ft_memcpy(s3 + len_s1, s2, len_s2);
 	s3[len_s1 + len_s2] = '\0';
+	free(s1);
 	return (s3);
 }
 

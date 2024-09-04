@@ -15,7 +15,8 @@
 char	*ft_trim(char *s)
 {
 	char	*trim_word;
-	int		i;
+	int	i;
+	int	j;
 	
 	if (!s || !s[0])
 		return (NULL);
@@ -24,18 +25,18 @@ char	*ft_trim(char *s)
 		i++;
 	while (s[i] == '\n')
 		i++;
-	trim_word = malloc(i + 1);
+	trim_word = malloc(i + 2);
 	if (trim_word == NULL)
 		return (NULL);
-	i = 0;
-	while (s[i] != '\0' && s[i] != '\n')
+	j = 0;
+	while (j < i)
 	{
-		s[i] = trim_word[i];
-		i++;
+		trim_word[j] = s[j];
+		j++;
 	}
 	if (s[i] == '\n')
-		trim_word[i++] = '\n';
-	trim_word[i] = '\0';
+		trim_word[j++] = '\n';
+	trim_word[j] = '\0';
 	return (trim_word);
 }
 
@@ -61,6 +62,7 @@ char	*ft_new_line(char *s)
 	while (s[i])
 		line[j++] = s[i++];
 	line[j] = '\0';
+	free(s);
 	return (line);
 }
 
@@ -100,6 +102,12 @@ char	*get_next_line(int fd)
 	if (left_str == NULL)
 		return (NULL);
 	line = ft_trim(left_str);
+	if (!line)
+	{
+		free(left_str);
+		left_str = NULL;
+		return (NULL);
+	}
 	left_str = ft_new_line(left_str);
 	return (line);
 }
