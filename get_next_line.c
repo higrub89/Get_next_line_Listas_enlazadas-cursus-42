@@ -83,7 +83,6 @@ char	*read_to_left_str(int fd, char *left_str)
 			free(buffer);
 			return (NULL);
 		}
-		printf("soy el buffer %s\n", buffer);
 		buffer[n_bytes] = '\0';
 		left_str = ft_strjoin(left_str, buffer);
 	}
@@ -112,20 +111,3 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-int	main(void)
-{
-	int fd = open("archivo.txt", O_RDONLY);
-	char	*l;
-
-	if (fd == -1)
-	{
-		printf("Failed Reading\n");
-		return (1);
-	}
-	while ((l = get_next_line(fd)) != NULL)
-	{
-		printf("Linea: %s\n", l);
-	}
-	close(fd);
-	return (0);
-}

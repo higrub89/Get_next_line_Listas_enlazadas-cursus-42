@@ -14,10 +14,19 @@
 
 int	main(void)
 {
-	char	*nl;
-	char	*s = "Hola que tal %\n como estas ?";
-	char	*s2 = ft_strjoin(nl, s);
+	int	fd;
+	char	*line;
 
-	printf("%s", s2);
+	fd = open("salmo91.txt", O_RDONLY);
+	if (fd == -1)
+	{
+		printf("FAILED READING");
+		return (1);
+	}
+	while ((line = get_next_line(fd)) != NULL)
+	{
+		printf("%s", line);
+	}
+	close(fd);
 	return (0);
 }
