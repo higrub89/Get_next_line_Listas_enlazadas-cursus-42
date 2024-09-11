@@ -6,7 +6,7 @@
 /*   By: rhiguita <rhiguita@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 13:20:42 by rhiguita          #+#    #+#             */
-/*   Updated: 2024/09/01 12:34:15 by rhiguita         ###   ########.fr       */
+/*   Updated: 2024/09/11 21:31:59 by rhiguita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@
 # include <stdlib.h>
 # include <fcntl.h>
 
-# define BUFFER_SIZE 20
+# ifndef BUFFER_SIZE 
+#  define BUFFER_SIZE 1
+# endif
 
 char	*ft_trim(char *s);
 char	*ft_new_line(char *s);
