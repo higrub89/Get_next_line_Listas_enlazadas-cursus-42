@@ -6,7 +6,7 @@
 /*   By: rhiguita <rhiguita@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 13:19:58 by rhiguita          #+#    #+#             */
-/*   Updated: 2024/09/11 21:45:43 by rhiguita         ###   ########.fr       */
+/*   Updated: 2024/09/15 18:46:21 by rhiguita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*ft_trim(char *s)
 		i++;
 	while (s[i] == '\n')
 		i++;
-	trim_word = malloc(i);
+	trim_word = malloc(i + 1);
 	if (trim_word == NULL)
 		return (NULL);
 	j = 0;
@@ -54,6 +54,7 @@ char	*ft_new_line(char *s)
 		free(s);
 		return (NULL);
 	}
+	i++;
 	line = malloc(ft_strlen(s) - i + 1);
 	if (line == NULL)
 		return (NULL);

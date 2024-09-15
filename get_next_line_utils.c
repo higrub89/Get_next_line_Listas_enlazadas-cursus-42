@@ -6,7 +6,7 @@
 /*   By: rhiguita <rhiguita@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 19:12:11 by rhiguita          #+#    #+#             */
-/*   Updated: 2024/09/01 16:43:15 by rhiguita         ###   ########.fr       */
+/*   Updated: 2024/09/12 21:07:15 by rhiguita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,19 +52,15 @@ char	*ft_strjoin(char *s1, char *s2)
 	len_s1 = ft_strlen(s1);
 	len_s2 = ft_strlen(s2);
 	if (!s1)
-	{
-		s1 = malloc(1);
-		s1[0] = 0;
-	}
-	if (!s1 || !s2)
-		return (NULL);
+		s1 = "";
+	if (!s2)
+		s2 = "";
 	s3 = (char *)malloc((len_s1 + len_s2 + 1) * sizeof(char));
 	if (!s3)
 		return (NULL);
 	ft_memcpy(s3, s1, len_s1);
 	ft_memcpy(s3 + len_s1, s2, len_s2);
 	s3[len_s1 + len_s2] = '\0';
-	free(s1);
 	return (s3);
 }
 
@@ -75,7 +71,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 
 	d = (unsigned char *)dest;
 	s = (unsigned char *)src;
-	if (!dest && !src)
+	if (!dest || !src)
 		return (NULL);
 	while (n-- > 0)
 	{
