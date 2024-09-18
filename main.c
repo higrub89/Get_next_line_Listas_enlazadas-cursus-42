@@ -6,7 +6,7 @@
 /*   By: rhiguita <rhiguita@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 18:21:19 by rhiguita          #+#    #+#             */
-/*   Updated: 2024/09/11 21:36:48 by rhiguita         ###   ########.fr       */
+/*   Updated: 2024/09/16 21:09:25 by rhiguita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main(void)
 	int	fd;
 	char	*line;
 
-	fd = open("salmo91.txt", O_RDONLY);
+	fd = open("archivos.txt", O_RDONLY);
 	if (fd == -1)
 	{
 		printf("FAILED READING");

@@ -6,7 +6,7 @@
 /*   By: rhiguita <rhiguita@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 13:19:58 by rhiguita          #+#    #+#             */
-/*   Updated: 2024/09/15 18:46:21 by rhiguita         ###   ########.fr       */
+/*   Updated: 2024/09/18 20:51:54 by rhiguita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 char	*ft_trim(char *s)
 {
 	char	*trim_word;
-	int	i;
-	int	j;
-	
+	int		i;
+	int		j;
+
 	if (!s || !s[0])
 		return (NULL);
 	i = 0;
@@ -34,8 +34,6 @@ char	*ft_trim(char *s)
 		trim_word[j] = s[j];
 		j++;
 	}
-	//if (s[i] == '\n')
-		//trim_word[j++] = '\n';
 	trim_word[j] = '\0';
 	return (trim_word);
 }
@@ -46,6 +44,9 @@ char	*ft_new_line(char *s)
 	int		i;
 	int		j;
 
+	i = 0;
+	if (!s || !s[0])
+		return (NULL);
 	i = 0;
 	while (s[i] != '\0' && s[i] != '\n')
 		i++;
@@ -58,7 +59,6 @@ char	*ft_new_line(char *s)
 	line = malloc(ft_strlen(s) - i + 1);
 	if (line == NULL)
 		return (NULL);
-	i++;
 	j = 0;
 	while (s[i])
 		line[j++] = s[i++];
@@ -76,10 +76,10 @@ char	*read_to_left_str(int fd, char *left_str)
 	buffer = malloc(BUFFER_SIZE + 1);
 	if (!buffer)
 		return (NULL);
-	while(!(ft_strchr(left_str, '\n')) && n_bytes != 0)
+	while (!(ft_strchr(left_str, '\n')) && (n_bytes != 0))
 	{
 		n_bytes = read(fd, buffer, BUFFER_SIZE);
-		if(n_bytes == -1)
+		if (n_bytes == -1)
 		{
 			free(buffer);
 			return (NULL);
@@ -93,8 +93,8 @@ char	*read_to_left_str(int fd, char *left_str)
 
 char	*get_next_line(int fd)
 {
-	char	*line;
-	static char	*left_str = 0;
+	char		*line;
+	static char	*left_str;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
@@ -111,4 +111,3 @@ char	*get_next_line(int fd)
 	left_str = ft_new_line(left_str);
 	return (line);
 }
-

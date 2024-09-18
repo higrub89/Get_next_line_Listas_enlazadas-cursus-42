@@ -6,11 +6,11 @@
 /*   By: rhiguita <rhiguita@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 13:20:42 by rhiguita          #+#    #+#             */
-/*   Updated: 2024/09/11 21:31:59 by rhiguita         ###   ########.fr       */
+/*   Updated: 2024/09/18 20:52:43 by rhiguita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
 # include <stdio.h>

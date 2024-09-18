@@ -6,7 +6,7 @@
 /*   By: rhiguita <rhiguita@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 19:12:11 by rhiguita          #+#    #+#             */
-/*   Updated: 2024/09/12 21:07:15 by rhiguita         ###   ########.fr       */
+/*   Updated: 2024/09/18 20:53:47 by rhiguita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ size_t	ft_strlen(char *s)
 
 	i = 0;
 	if (!s)
-		return(0);
-	while(s[i] != '\0')
+		return (0);
+	while (s[i] != '\0')
 		i++;
 	return (i);
 }
@@ -31,7 +31,7 @@ char	*ft_strchr(char *s, char c)
 	i = 0;
 	if (s == NULL)
 		return (NULL);
-	while(s[i])
+	while (s[i])
 	{
 		if (s[i] == c)
 			return (&s[i]);
