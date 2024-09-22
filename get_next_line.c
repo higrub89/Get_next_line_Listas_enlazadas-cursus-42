@@ -6,7 +6,7 @@
 /*   By: rhiguita <rhiguita@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 13:19:58 by rhiguita          #+#    #+#             */
-/*   Updated: 2024/09/18 20:51:54 by rhiguita         ###   ########.fr       */
+/*   Updated: 2024/09/22 17:09:01 by rhiguita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,7 @@ char	*ft_trim(char *s)
 	if (!s || !s[0])
 		return (NULL);
 	i = 0;
-	while (s[i] != '\0' && s[i] != '\n')
-		i++;
-	while (s[i] == '\n')
+	while (s[i] && s[i] != '\n')
 		i++;
 	trim_word = malloc(i + 1);
 	if (trim_word == NULL)
@@ -34,6 +32,8 @@ char	*ft_trim(char *s)
 		trim_word[j] = s[j];
 		j++;
 	}
+	if (s[i] == '\n')
+		trim_word[j++] = '\n';
 	trim_word[j] = '\0';
 	return (trim_word);
 }
@@ -44,7 +44,6 @@ char	*ft_new_line(char *s)
 	int		i;
 	int		j;
 
-	i = 0;
 	if (!s || !s[0])
 		return (NULL);
 	i = 0;
@@ -96,7 +95,7 @@ char	*get_next_line(int fd)
 	char		*line;
 	static char	*left_str;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 && BUFFER_SIZE <= 0)
 		return (NULL);
 	left_str = read_to_left_str(fd, left_str);
 	if (left_str == NULL)
