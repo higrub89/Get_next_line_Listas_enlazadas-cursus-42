@@ -21,7 +21,7 @@ char	*ft_trim(char *s)
 	if (!s || !s[0])
 		return (NULL);
 	i = 0;
-	while (s[i] && s[i] != '\n')
+	while (s[i] != '\0' && s[i] != '\n')
 		i++;
 	trim_word = malloc(i + 1);
 	if (trim_word == NULL)
