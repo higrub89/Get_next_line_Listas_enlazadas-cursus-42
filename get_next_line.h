@@ -6,7 +6,7 @@
 /*   By: rhiguita <rhiguita@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 13:20:42 by rhiguita          #+#    #+#             */
-/*   Updated: 2024/09/18 20:52:43 by rhiguita         ###   ########.fr       */
+/*   Updated: 2024/09/26 21:29:36 by rhiguita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 
 char	*ft_trim(char *s);
 char	*ft_new_line(char *s);
-char	*read_to_left_str(int fd, char *left_str);
+char	*read_to_left_str(int fd, char *left_str[fd]);
 char	*get_next_line(int fd);
 char	*ft_strjoin(char *s1, char *s2);
 size_t	ft_strlen(char *s);
